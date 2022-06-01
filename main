@@ -1,0 +1,106 @@
+from tkinter import*
+tk=Tk()
+tk.title("DaVinci")
+tk.geometry("440x300")
+#Напис1
+
+def main():
+    lb1=Label(text="Найменування",font=("Arial",12,"bold"))
+    lb1.place(x=20,y=20)
+    lb2=Label(text="Ціна,грн.",font=("Arial",12,"bold"))
+    lb2.place(x=150,y=20)
+    lb3=Label(text="Кількість",font=("Arial",12,"bold"))
+    lb3.place(x=230,y=20)
+    lb4=Label(text="Вартість,грн.",font=("Arial",12,"bold"))
+    lb4.place(x=310,y=20)
+    #Напис2
+    lb5=Label(text="Піца",font=("Arial",12))
+    lb5.place(x=20,y=70)
+    lb6=Label(text="Морозиво",font=("Arial",12))
+    lb6.place(x=20,y=110)
+    lb7=Label(text="Тістечкo",font=("Arial",12))
+    lb7.place(x=20,y=150)
+    lb8=Label(text="Сік",font=("Arial",12))
+    lb8.place(x=20,y=190)
+    lb9=Label(text="Вартість замовлення:",font=("Arial",12))
+    lb9.place(x=20,y=240)
+    lb10=Label(text="грн.",font=("Arial",12))
+    lb10.place(x=270,y=240)
+    #Шкала
+    y1=0
+    def s1_click(val):
+        global y1
+        k1=int(val)
+        x1=int(p1.get())
+        y1=x1*k1
+        var1.set(y1)
+    s1=Scale(orient=HORIZONTAL,length=50,from_=0,to=10,command=s1_click)
+    s1.place(x=240,y=55)
+    y2=0
+    def s2_click(val):
+        global y2
+        k2=int(val)
+        x2=int(p2.get())
+        y2=x2*k2
+        var2.set(y2)
+    s2=Scale(orient=HORIZONTAL,length=50,from_=0,to=10,command=s2_click)
+    s2.place(x=240,y=95)
+    y3=0
+    def s3_click(val):
+        global y3
+        k3=int(val)
+        x3=int(p3.get())
+        y3=x3*k3
+        var3.set(y3)
+    s3=Scale(orient=HORIZONTAL,length=50,from_=0,to=10,command=s3_click)
+    s3.place(x=240,y=135)
+    y4=0
+    def s4_click(val):
+        global y4
+        k4=int(val)
+        x4=int(p4.get())
+        y4=x4*k4
+        var4.set(y4)
+    s4=Scale(orient=HORIZONTAL,length=50,from_=0,to=10,command=s4_click)
+    s4.place(x=240,y=175)
+    #Ціна
+    p1=Entry(bg="firebrick1",justify="center",font="12")
+    p1.place(x=155,y=70,width=60,height=25)
+    p1.insert(END,"75")
+    p2=Entry(bg="firebrick1",justify="center",font="12")
+    p2.place(x=155,y=110,width=60,height=25)
+    p2.insert(END,"15")
+    p3=Entry(bg="firebrick1",justify="center",font="12")
+    p3.place(x=155,y=150,width=60,height=25)
+    p3.insert(END,"30")
+    p4=Entry(bg="firebrick1",justify="center",font="12")
+    p4.place(x=155,y=190,width=60,height=25)
+    p4.insert(END,"10")
+    #Вартість
+    var1=StringVar()
+    c1=Label(text=0,bg="firebrick2",font="12",textvariable=var1)
+    c1.place(x=320,y=70,width=60,height=25)
+    var2=StringVar()
+    c2=Label(text=0,bg="firebrick2",font="12",textvariable=var2)
+    c2.place(x=320,y=110,width=60,height=25)
+    var3=StringVar()
+    c3=Label(text=0,bg="firebrick2",font="12",textvariable=var3)
+    c3.place(x=320,y=150,width=60,height=25)
+    var4=StringVar()
+    c4=Label(text=0,bg="firebrick2",font="12",textvariable=var4)
+    c4.place(x=320,y=190,width=60,height=25)
+    var5=StringVar()
+    c5=Label(text=0,bg="chocolate1",font="12",textvariable=var5)
+    c5.place(x=200,y=240,width=60,height=25)
+    #Кнопка
+    def B0_click():
+        global y1,y2,y3,y4
+        y=0
+        y=y1+y2+y3+y4
+        var5.set(y)
+    B0=Button(text="Розрахувати",font=("Arial",12),command=B0_click)
+    B0.pack()
+    B0.place(x=310,y=237,width=110,height=30)
+
+if __name__ == "__main__":
+    main()
